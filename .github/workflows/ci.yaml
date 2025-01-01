@@ -18,7 +18,7 @@ jobs:
         uses: ./.github/actions/setup-and-build
         env:
           GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}
-        run: echo "Using: $GOOGLE_GENERATIVE_AI_API_KEY
+        run: echo "Using: $GOOGLE_GENERATIVE_AI_API_KEY"
           
       - name: Run type check
         run: pnpm run typecheck
