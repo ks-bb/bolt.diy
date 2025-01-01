@@ -25,9 +25,12 @@ runs:
         node-version: ${{ inputs.node-version }}
         cache: pnpm
 
-    - name: Install dependencies and build project
-      env:
-        GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}
+    - name: Create .env file
+        uses: ozaytsev86/create-env-file@v1
+        with:
+          GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}           
+
+    - name: Install dependencies and build project      
       shell: bash
       run: |
         pnpm install
