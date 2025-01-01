@@ -25,6 +25,11 @@ runs:
         node-version: ${{ inputs.node-version }}
         cache: pnpm
 
+    - name: Create .env file
+        run: |
+          touch .env
+          echo GOOGLE_GENERATIVE_AI_API_KEY = ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }} >> .env 
+
     - name: Install dependencies and build project
       shell: bash
       run: |
