@@ -16,9 +16,11 @@ jobs:
 
       - name: Setup and Build
         uses: ./.github/actions/setup-and-build
-        env:
-          GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}
-        run: echo using $GOOGLE_GENERATIVE_AI_API_KEY
+
+      - name: Create .env file
+        uses: ozaytsev86/create-env-file@v1
+        with:
+          GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}          
           
       - name: Run type check
         run: pnpm run typecheck
